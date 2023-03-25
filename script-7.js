@@ -60,6 +60,14 @@ let users = [
 let newUsers = users.filter(user => parseFloat(user.balance.replace(/[$,]/g, '')) > 2000).map(user => user.phone);
 console.log(newUsers);
 
-let sum = 0;
-let rusult = newUsers.reduce(user => parseFloat(user.balance));
-console.log(rusult);
+
+let parseBalance = (balance) => {
+    return parseInt(balance.replace(/[$,]/g, ''));
+};
+
+let result = users.reduce((prev, next) => {
+    return prev += parseBalance(next.balance)
+}, 0);
+
+console.log(result);
+
