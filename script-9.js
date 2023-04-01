@@ -17,6 +17,7 @@ fact(arr);
 // sum() повертає суму збережених значень.
 // mul() множить збережені значення і повертає результат.
 
+// Варіант 1
 let calculator = {
     
     sum () {
@@ -37,24 +38,25 @@ calculator.read();
 alert (calculator.sum());
 alert (calculator.mul());
 
+// Варіант 2
 
-/* let read = {
+let read = {
     nameA:  +prompt ('ведіть число А', 0),
     nameB:  +prompt ('ведіть число B', 0),
 };
 
-let calculator = {
+let calculator2 = {
     
     sum () {
-        return read.nameA + read.nameB;
+        return this.nameA + this.nameB;
     },
 
     mul () {
-        return read.nameA * read.nameB;
+        return this.nameA * this.nameB;
     },
 };
 
 
 console.log (read);
-alert (calculator.sum());
-alert (calculator.mul()); */
+alert (calculator2.sum.bind(read));
+alert (calculator2.mul.bind(read)); 
