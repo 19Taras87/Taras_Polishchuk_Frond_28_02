@@ -43,3 +43,27 @@ let z = t => {
   t();
 };
 z(x);
+
+// 4) Результатом декоратора debounce(f, ms) должна быть обёртка, которая передаёт вызов f не 
+// более одного раза в ms миллисекунд. Другими словами, когда мы вызываем debounce, это гарантирует, 
+// что все остальные вызовы будут игнорироваться в течение ms.
+
+function debounce(f, ms) {
+
+    let isCooldown = false;
+  
+    return function() {
+      if (isCooldown) return;
+  
+      f.apply(this, arguments);
+  
+      isCooldown = true;
+  
+      setTimeout(() => isCooldown = false, ms);
+    };
+  
+  };
+
+  setTimeout( () => f(3), 100); 
+  setTimeout( () => f(4), 1100); 
+  setTimeout( () => f(5), 1500); 
