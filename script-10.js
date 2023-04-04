@@ -26,16 +26,12 @@ console.log (yourFunc2(array));
 // 2) Напишите функцию которая принимает массив 
 // целых чисел и вернет число которое встречается чаще всего, если таких чисел несколько результатом должно быть число которое встречается первым,
 
-/* const array1 = [ 2, 4, 5, 2, 2, 6, 6, 6, 6, 6, 7, 9]; */
-const array1 = [1, 1, 1, 2, 2, 2, 2, 2]
+const array1 = [ 2, 4, 5, 2, 2, 6, 6, 6, 6, 6, 7, 9];
 
-const yourFunc3 = (array1) => {
-    return array1.sort((a, b) => {
-        a.length > b.length ? -1: 1;
-    }) [0];
-};
+let g = [...new Set(array1)].map(i=>[i, array1.filter(f=>f==i).length]).sort((a,b)=>b[1]-a[1]);
+let first = g[0]
+console.log (first);
 
-console.log (yourFunc3(array1));
 
 // 3) Что вернет выражение z(x) ?
 // поверне 'undefind' оскільки функція "t" не вертає ні якого значення
